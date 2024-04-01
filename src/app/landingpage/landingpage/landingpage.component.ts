@@ -25,7 +25,7 @@ export class LandingpageComponent implements OnInit {
       (response: any) => {
         const totalBooks = response.items.length;
         const randomIndexes: number[] = [];
-        while (randomIndexes.length < 20) {
+        while (randomIndexes.length < 21) {
           const randomIndex = Math.floor(Math.random() * totalBooks);
           if (!randomIndexes.includes(randomIndex)) {
             randomIndexes.push(randomIndex);
@@ -35,7 +35,6 @@ export class LandingpageComponent implements OnInit {
         this.loading = false;
       },
       (error: any) => {
-        console.error('Error fetching books:', error);
         this.error = 'Error fetching books. Please try again.';
         this.loading = false;
       }
@@ -43,13 +42,11 @@ export class LandingpageComponent implements OnInit {
   }
 
   onSearch(query: string): void {
-    console.log("Search query:", query);
     this.bookService.searchBooks(query).subscribe(
       (response: any) => {
         this.books = response.items;
       },
       (error: any) => {
-        console.error('Error searching books:', error);
         this.error = 'Error searching books. Please try again.';
       }
     );
