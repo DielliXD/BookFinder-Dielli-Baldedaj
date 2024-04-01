@@ -1,0 +1,23 @@
+<nav class="navbar">
+    <div class="navbar-left">
+        <a href="/landingpage">
+            <img src="assets/icons8-book-100.png" alt="Book Icon" class="book-icon">
+        </a>
+    </div>
+    <div class="navbar-middle">
+        <input type="text" placeholder="Search for books..." class="search-input" #searchInput>
+        <button class="search-button" (click)="onSearch(searchInput.value)">Search</button>
+    </div>
+</nav>
+
+<div class="card-container-fluid">
+    <div class="card" *ngFor="let book of books">
+        <div class="card-content">
+            <img [src]="book.volumeInfo.imageLinks?.thumbnail || 'assets/no-image0available.webp'" alt="Book Cover" class="card-image">
+            <div class="card-details">
+                <h5 class="card-title">{{ book.volumeInfo.title }}</h5>
+                <button (click)="showBook(book.id)" class="btn-details">Display More</button>
+            </div>
+        </div>
+    </div>
+</div>

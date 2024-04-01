@@ -1,0 +1,133 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: black; 
+    color: white; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #08245d;
+    padding: 10px 20px;
+}
+
+.navbar-left {
+    flex: 1;
+}
+
+.book-icon {
+    height: 30px;
+}
+
+.navbar-middle {
+    flex: 3;
+    padding-left: 19%;
+}
+
+.search-input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 30%;
+    background-color: #fff; 
+    color: black; 
+}
+
+.search-button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: blueviolet;
+    color: white;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.landing {
+    background-color: blue;
+}
+
+.book-icon {
+    height: 50px;
+}
+
+.card-container-fluid {
+    padding-top: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 15%;  
+}
+
+.card {
+    width: 300px; 
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    background-color: black; 
+    color: white; 
+    margin: 15px 20px;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card-content {
+    position: relative;
+}
+
+.card-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-details {
+    padding: 15px;
+}
+
+.card-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.btn-details {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.3s;
+}
+
+.details {
+    display: none;
+}
+
+.details p {
+    margin-bottom: 5px;
+}
+
+.details p:first-child {
+    margin-top: 0;
+}
+
+.card:hover .details {
+    display: block;
+}
+
+.card-p {
+    font-size: 13px;
+}
+
+.btn-details:hover {
+    background-color: #0056b3;
+}
+
