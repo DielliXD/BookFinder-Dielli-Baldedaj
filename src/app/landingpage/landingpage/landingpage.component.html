@@ -1,23 +1,48 @@
 <nav class="navbar">
-    <div class="navbar-left">
-        <a href="/landingpage">
-            <img src="assets/icons8-book-100.png" alt="Book Icon" class="book-icon">
-        </a>
-    </div>
-    <div class="navbar-middle">
-        <input type="text" placeholder="Search for books..." class="search-input" #searchInput>
-        <button class="search-button" (click)="onSearch(searchInput.value)">Search</button>
-    </div>
+  <div class="navbar-left">
+    <a routerLink="/landingpage">
+      <img src="assets/icons8-book-100.png" alt="Book Icon" class="book-icon" />
+    </a>
+  </div>
+  <div class="navbar-middle">
+    <input
+      type="text"
+      placeholder="Search for books..."
+      class="search-input"
+      #searchInput
+    />
+    <button class="search-button" (click)="onSearch(searchInput.value)">
+      Search
+    </button>
+  </div>
 </nav>
 
-<div class="card-container-fluid">
-    <div class="card" *ngFor="let book of books">
-        <div class="card-content">
-            <img [src]="book.volumeInfo.imageLinks?.thumbnail || 'assets/no-image0available.webp'" alt="Book Cover" class="card-image">
-            <div class="card-details">
-                <h5 class="card-title">{{ book.volumeInfo.title }}</h5>
-                <button (click)="showBook(book.id)" class="btn-details">Display More</button>
-            </div>
-        </div>
+<div class="loading-container" *ngIf="loading">
+  <div class="spinner"></div>
+  <p>Loading books...</p>
+</div>
+
+<div class="error-message" *ngIf="error">
+  {{ error }}
+</div>
+
+<div class="card-container-fluid" *ngIf="!loading && !error">
+  <div class="card" *ngFor="let book of books">
+    <div class="card-image">
+      <img
+        [src]="
+          book.volumeInfo.imageLinks?.thumbnail ||
+          'assets/no-image-available.webp'
+        "
+        alt="Book Cover"
+      />
     </div>
+    <div class="card-content">
+      <h3 class="card-title">{{ book.volumeInfo.title }}</h3>
+      <p class="card-author" *ngIf="book.volumeInfo.authors">
+        {{ book.volumeInfo.authors[0] }}
+      </p>
+      <button class="btn-details" (click)="showBook(book.id)">Read More</button>
+    </div>
+  </div>
 </div>
