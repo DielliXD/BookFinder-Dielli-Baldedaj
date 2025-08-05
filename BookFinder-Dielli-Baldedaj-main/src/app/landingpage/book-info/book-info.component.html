@@ -1,0 +1,16 @@
+<div class="book-info-container">
+  <div class="book-info">
+      <a href="/landingpage" class="goback">Go Back</a>
+      <img [src]="book?.volumeInfo?.imageLinks?.thumbnail || 'assets/no-image0available.webp'" alt="Book Cover">
+      <h2>{{ book?.volumeInfo?.title }}</h2>
+      <p>Author(s): {{ book?.volumeInfo?.authors?.join(', ') }}</p>
+      <p>Published Date: {{ book?.volumeInfo?.publishedDate }}</p>
+      <p>Page Count: {{ book?.volumeInfo?.pageCount }}</p>
+      <p>Publisher: {{ book?.volumeInfo?.publisher }}</p>
+      <p>Categories: {{ book?.volumeInfo?.categories?.join(', ') }}</p>
+      <p>ISBN: {{ book?.volumeInfo?.industryIdentifiers[0]?.identifier }}</p>
+      <p>Description:</p>
+      <div [innerHTML]="book?.volumeInfo?.description"></div>
+      <button (click)="openBookDetails(book.id)" class="btn-details">More Details</button>
+  </div>
+</div>
